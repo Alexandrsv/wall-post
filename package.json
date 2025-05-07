@@ -1,0 +1,25 @@
+{
+  "name": "wall-post",
+  "packageManager": "yarn@4.9.1",
+  "scripts": {
+    "back:start": "dotenv -e .env -- yarn workspace @wall-post/back run start",
+    "back:dev": "dotenv -e .env -- yarn workspace @wall-post/back run dev",
+    "back:prisma:generate": "yarn workspace @wall-post/prisma run prisma:generate",
+    "back:prisma:deploy": "dotenv -e .env -- yarn workspace @wall-post/prisma run prisma:deploy",
+    "back:prisma:studio": "dotenv -e .env -- yarn workspace @wall-post/prisma run prisma:studio",
+    "back:zbc:deploy": "yarn workspace @wall-post/back run zbc:deploy",
+    "back:zbc:logs": "yarn workspace @wall-post/back run zbc:logs",
+    "front:dev": "yarn workspace @wall-post/front run dev",
+    "front:tunnel:vk": "yarn workspace @wall-post/front run tunnel:vk",
+    "front:deploy:vk": "yarn workspace @wall-post/front run deploy",
+    "dev:all": "yarn workspaces foreach -Api run dev",
+    "ts:check:all": "yarn workspaces foreach -Api run ts:check",
+    "lint:all": "yarn workspaces foreach -Api run lint"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "prettier": "^3.5.3"
+  }
+}
