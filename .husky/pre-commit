@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+echo "Запускаю pre-commit hook"
+
+yarn ts:check:all
+yarn lint

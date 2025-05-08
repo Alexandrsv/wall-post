@@ -13,7 +13,8 @@
     "mini-app:deploy:vk": "yarn workspace @wall-post/mini-app run deploy",
     "dev:all": "yarn workspaces foreach -Api run dev",
     "ts:check:all": "yarn workspaces foreach -Api run ts:check",
-    "lint:all": "eslint . --fix -c eslint.config.mjs"
+    "lint": "eslint . --fix -c eslint.config.mjs",
+    "prepare": "husky"
   },
   "dependencies": {
     "dotenv": "^16.5.0",
@@ -25,6 +26,7 @@
     "eslint": "^9.26.0",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
+    "husky": "^9.1.7",
     "prettier": "^3.5.3",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.32.0"
