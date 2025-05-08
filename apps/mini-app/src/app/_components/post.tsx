@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { api } from "~/trpc/react";
 
@@ -15,6 +15,12 @@ export function LatestPost() {
       setName("");
     },
   });
+
+  useEffect(() => {
+    if (createPost.isSuccess) {
+      setName("");
+    }
+  }, [createPost.isSuccess]);
 
   return (
     <div className="w-full max-w-xs">

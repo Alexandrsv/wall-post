@@ -31,6 +31,7 @@ export const postRouter = createTRPCRouter({
         name: input.name,
       };
       posts.push(post);
+
       return post;
     }),
 

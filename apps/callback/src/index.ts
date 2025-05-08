@@ -8,15 +8,18 @@ const prisma = new PrismaClient();
 app.get("/", async (c) => {
   const user = await prisma.user.findMany();
   console.log(user);
+
   return c.text("Hello Hono!");
 });
 
 app.get("/users", async (c) => {
   try {
     const users = await prisma.user.findMany();
+
     return c.json(users);
   } catch (error) {
     console.error("Error fetching users:", error);
+
     return c.json({ error: "Failed to fetch users" }, 500);
   }
 });

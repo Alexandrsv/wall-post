@@ -3,33 +3,34 @@
   "private": true,
   "packageManager": "yarn@4.9.1",
   "scripts": {
-    "back:start": "dotenv -e .env -- yarn workspace @wall-post/back run start",
+    "callback:start": "dotenv -e .env -- yarn workspace @wall-post/callback run start",
     "callback:dev": "dotenv -e .env -- yarn workspace @wall-post/callback run dev",
-    "back:prisma:generate": "yarn workspace @wall-post/prisma run prisma:generate",
-    "back:prisma:deploy": "dotenv -e .env -- yarn workspace @wall-post/prisma run prisma:deploy",
-    "back:prisma:studio": "dotenv -e .env -- yarn workspace @wall-post/prisma run prisma:studio",
-    "back:zbc:deploy": "yarn workspace @wall-post/back run zbc:deploy",
-    "back:zbc:logs": "yarn workspace @wall-post/back run zbc:logs",
-    "front:dev": "yarn workspace @wall-post/front run dev",
-    "front:tunnel:vk": "yarn workspace @wall-post/front run tunnel:vk",
-    "front:deploy:vk": "yarn workspace @wall-post/front run deploy",
+    "prisma:generate": "yarn workspace @wall-post/prisma run prisma:generate",
+    "prisma:deploy": "dotenv -e .env -- yarn workspace @wall-post/prisma run prisma:deploy",
+    "prisma:studio": "dotenv -e .env -- yarn workspace @wall-post/prisma run prisma:studio",
+    "mini-app:dev": "yarn workspace @wall-post/mini-app run dev",
+    "mini-app:tunnel:vk": "yarn workspace @wall-post/mini-app run tunnel:vk",
+    "mini-app:deploy:vk": "yarn workspace @wall-post/mini-app run deploy",
     "dev:all": "yarn workspaces foreach -Api run dev",
     "ts:check:all": "yarn workspaces foreach -Api run ts:check",
-    "lint:all": "yarn workspaces foreach -Api run lint"
-  },
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^8.32.0",
-    "@typescript-eslint/parser": "^8.32.0",
-    "eslint": "^9.26.0",
-    "prettier": "^3.5.3",
-    "typescript": "^5.8.3"
+    "lint:all": "eslint . --fix -c eslint.config.mjs"
   },
   "dependencies": {
     "dotenv": "^16.5.0",
     "dotenv-cli": "^8.0.0"
-  }
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.32.0",
+    "@typescript-eslint/parser": "^8.32.0",
+    "eslint": "^9.26.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.32.0"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
 }
