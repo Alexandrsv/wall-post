@@ -1,9 +1,10 @@
 {
   "name": "wall-post",
+  "private": true,
   "packageManager": "yarn@4.9.1",
   "scripts": {
     "back:start": "dotenv -e .env -- yarn workspace @wall-post/back run start",
-    "back:dev": "dotenv -e .env -- yarn workspace @wall-post/back run dev",
+    "callback:dev": "dotenv -e .env -- yarn workspace @wall-post/callback run dev",
     "back:prisma:generate": "yarn workspace @wall-post/prisma run prisma:generate",
     "back:prisma:deploy": "dotenv -e .env -- yarn workspace @wall-post/prisma run prisma:deploy",
     "back:prisma:studio": "dotenv -e .env -- yarn workspace @wall-post/prisma run prisma:studio",
@@ -17,9 +18,18 @@
     "lint:all": "yarn workspaces foreach -Api run lint"
   },
   "workspaces": [
+    "apps/*",
     "packages/*"
   ],
   "devDependencies": {
-    "prettier": "^3.5.3"
+    "@typescript-eslint/eslint-plugin": "^8.32.0",
+    "@typescript-eslint/parser": "^8.32.0",
+    "eslint": "^9.26.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "dotenv-cli": "^8.0.0"
   }
 }

@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import "../../../../node_modules/tailwindcss/dist/lib.d.mts";
 
 @theme {
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,

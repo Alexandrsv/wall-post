@@ -3,7 +3,7 @@ import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 
 // Mocked DB
-interface Post {
+export interface Post {
   id: number;
   name: string;
 }

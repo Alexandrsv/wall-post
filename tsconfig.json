@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@mini-app/*": ["apps/mini-app/src/*"],
+      "@callback/*": ["apps/callback/src/*"],
+      "@prisma/*": ["packages/prisma/src/*"]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    ".yarn",
+    "packages/prisma/src/generated",
+    "**/dist/**"
+  ]
+}

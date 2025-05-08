@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "composite": true,
+    // Явно указываем отдельный build info файл для этого пакета
+    "tsBuildInfoFile": "./tsconfig.tsbuildinfo"
+  },
+  "include": ["./src"]
+}

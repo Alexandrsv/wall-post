@@ -4,6 +4,7 @@
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+.yarn/install-state.gz
 
 # Whether you use PnP or not, the node_modules folder is often used to store
 # build artifacts that should be gitignored
@@ -15,3 +16,9 @@ node_modules
 
 #!.yarn/cache
 .pnp.*
+.env
+.idea
+.dev.db
+/packages/prisma/prisma/dev.db
+/packages/prisma/prisma/dev.db-journal
+tsconfig.tsbuildinfo
