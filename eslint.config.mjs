@@ -21,14 +21,9 @@ export default defineConfig([
   ]),
   {
     files: ["**/*.ts", "**/*.tsx"],
-    extends: [
-      eslint.configs.recommended,
-      ...tseslint.configs.recommended,
-      // ...tseslint.configs.recommendedTypeChecked,
-      // ...tseslint.configs.stylisticTypeChecked,
-    ],
+    extends: [eslint.configs.recommended, ...tseslint.configs.recommended],
     rules: {
-      "no-console": "warn",
+      "no-console": ["warn", { allow: ["warn", "error", "info"] }],
       "no-debugger": "error",
       eqeqeq: ["error", "always"],
       "no-empty": ["error", { allowEmptyCatch: true }],

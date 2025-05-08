@@ -1,28 +1,13 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
-import { PrismaClient } from "@prisma/generated/client/index.js";
+import { callbackRouter } from "@callback/callbackModule/callbackRouter.js";
+import { logger } from "hono/logger";
 
 const app = new Hono();
-const prisma = new PrismaClient();
 
-app.get("/", async (c) => {
-  const user = await prisma.user.findMany();
-  console.log(user);
+app.route("/callback", callbackRouter);
 
-  return c.text("Hello Hono!");
-});
-
-app.get("/users", async (c) => {
-  try {
-    const users = await prisma.user.findMany();
-
-    return c.json(users);
-  } catch (error) {
-    console.error("Error fetching users:", error);
-
-    return c.json({ error: "Failed to fetch users" }, 500);
-  }
-});
+app.use(logger());
 
 serve(
   {
@@ -30,6 +15,6 @@ serve(
     port: +process.env.CALLBACK_PORT!,
   },
   (info) => {
-    console.log(`Server is running on http://localhost:${info.port}`);
+    console.info(`Callback server запущен на http://localhost:${info.port}`);
   },
 );
