@@ -22,3 +22,4 @@ node_modules
 /packages/prisma/prisma/dev.db
 /packages/prisma/prisma/dev.db-journal
 tsconfig.tsbuildinfo
+.all

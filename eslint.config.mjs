@@ -9,9 +9,9 @@ export default defineConfig([
   reactPlugin.configs.flat["jsx-runtime"],
   reactPlugin.configs.flat.recommended,
   globalIgnores([
-    ".next",
     "node_modules",
     "**/dist/**",
+    "**/.next/**",
     "**/.yarn/**",
     "packages/prisma/src/generated",
     "**/generated/**",

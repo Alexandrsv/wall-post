@@ -10,7 +10,7 @@
     "moduleDetection": "force",
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
-    "composite": true,
+
     /* Strictness */
     "strict": true,
     "noUncheckedIndexedAccess": true,

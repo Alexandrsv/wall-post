@@ -11,21 +11,21 @@
     }
   },
   "scripts": {
-    "prisma:generate": "prisma generate",
-    "prisma:deploy": "prisma migrate deploy",
-    "prisma:studio": "prisma studio",
+    "generate": "prisma generate --schema ./prisma/schema.prisma",
+    "deploy": "prisma migrate deploy --schema ./prisma/schema.prisma",
+    "studio": "prisma studio --schema ./prisma/schema.prisma",
+    "migrate": "prisma migrate dev --schema ./prisma/schema.prisma",
     "dev": "tsc --watch --preserveWatchOutput",
     "build": "tsc",
     "ts:check": "tsc --noEmit",
-    "lint": "echo 'ESLint not (fully) configured for prisma package, skipping...'",
     "postprisma:generate": "yarn build"
   },
   "dependencies": {
-    "@prisma/client": "^5.10.0"
+    "@prisma/client": "^6.7.0"
   },
   "devDependencies": {
     "eslint": "^8.56.0",
-    "prisma": "^5.10.0",
+    "prisma": "^6.7.0",
     "typescript": "^5.3.3"
   },
   "files": [

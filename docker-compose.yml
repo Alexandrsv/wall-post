@@ -1,0 +1,33 @@
+name: ${APP_NAME}
+
+services:
+  pg:
+    container_name: ${POSTGRES_CONTAINER_NAME} # Уникальное имя контейнера
+    image: postgres:17
+    restart: unless-stopped
+    shm_size: 1g # Оставляем, если требуется для производительности Postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      # Публикуем порт только если нужен доступ извне сети Docker
+      - '${POSTGRES_PORT}:5432'
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+
+
+networks:
+  default:
+    name: traefik-default
+    external: true
+
+volumes:
+  pgdata: # ключ фиксированный
+    name: ${APP_NAME}_pgdata # ← а здесь уже подставляем переменную
