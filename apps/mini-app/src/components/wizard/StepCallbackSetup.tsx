@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
@@ -30,6 +30,12 @@ export function StepCallbackSetup({
   const [secret, setSecret] = useState("");
   const [events, setEvents] = useState<string[]>([EVENTS[0].name]);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setUrl(`${window.location.origin}/api/callback`);
+    }
+  }, []);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onSetup({ url, secret_key: secret, events });
@@ -52,13 +58,17 @@ export function StepCallbackSetup({
           />
         </div>
         <div>
-          <Label htmlFor="secret">Секретный ключ</Label>
+          <Label htmlFor="secret">
+            Секретный ключ{" "}
+            <span className="text-muted-foreground text-xs">
+              (необязательно)
+            </span>
+          </Label>
           <Input
             id="secret"
             value={secret}
             onChange={(e) => setSecret(e.target.value)}
-            placeholder="Введите секретный ключ"
-            required
+            placeholder="Оставьте пустым, если не требуется"
           />
         </div>
         <div>

@@ -4,6 +4,26 @@ model User {
   updatedAt DateTime @updatedAt
   email     String   @unique
   name      String?
+  userTokens UserToken[]
+}
+
+model UserToken {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  token     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id])
+  @@unique([userId])
+}
+
+model CommunityToken {
+  id        Int      @id @default(autoincrement())
+  groupId   Int
+  token     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@unique([groupId])
 }
 
 generator client {
