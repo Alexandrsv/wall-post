@@ -15,6 +15,8 @@
     "dev:all": "dotenv -e .env -- yarn workspaces foreach -Api run dev",
     "ts:check:all": "yarn workspaces foreach -Api run ts:check",
     "lint": "eslint . --fix -c eslint.config.mjs",
+    "tunnel": "ssh -p 212 -o \"UserKnownHostsFile=/dev/null\" -o \"StrictHostKeyChecking no\" -N -R \"*:11211:localhost:3000\" publisher@tunnel11211.zbc.su #https://tunnel11211.zbc.su/",
+    "tunnel:restart": "ssh adminvps  'docker-compose -f /root/containers/tunnel11211/docker-compose.yml down; docker-compose -f /root/containers/tunnel11211/docker-compose.yml up -d'",
     "prepare": "husky"
   },
   "dependencies": {
